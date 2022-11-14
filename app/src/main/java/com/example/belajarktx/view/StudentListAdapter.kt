@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.belajarktx.R
 import com.example.belajarktx.model.Student
+import com.example.belajarktx.util.loadImage
 import kotlinx.android.synthetic.main.student_list_item.view.*
 
 class StudentListAdapter(val studentList: ArrayList<Student>) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {
@@ -29,6 +30,8 @@ class StudentListAdapter(val studentList: ArrayList<Student>) : RecyclerView.Ada
                 val action = StudentListFragmentDirections.actionStudentDetailFragment()
                 Navigation.findNavController(it).navigate(action)
             }
+
+            imgStudent.loadImage(student.photoUrl, progressBarImage)
         }
     }
 
