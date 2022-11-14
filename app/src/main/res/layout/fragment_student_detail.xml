@@ -8,7 +8,7 @@
     tools:context=".view.StudentDetailFragment">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgDetailStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -75,7 +75,7 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/imgDetailStudent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editID"

@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.belajarktx.R
+import com.example.belajarktx.util.loadImage
 import com.example.belajarktx.viewmodel.DetailViewModel
 import kotlinx.android.synthetic.main.fragment_student_detail.*
-import kotlinx.android.synthetic.main.fragment_student_list.*
 
 class StudentDetailFragment : Fragment() {
     private lateinit var viewModel: DetailViewModel
@@ -23,20 +23,22 @@ class StudentDetailFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val studentId = StudentDetailFragmentArgs.fromBundle(requireArguments()).studentId
+
         viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
-        viewModel.fetch()
+        viewModel.fetch(studentId)
 
         observeViewModel()
     }
 
     private fun observeViewModel() {
         viewModel.studentLiveData.observe(viewLifecycleOwner) {
+            imgDetailStudent.loadImage(it.photoUrl, null)
             editID.setText(it.id)
             editName.setText(it.name)
             editDoB.setText(it.dob)
             editPhone.setText(it.phone)
         }
     }
-
 
 }
